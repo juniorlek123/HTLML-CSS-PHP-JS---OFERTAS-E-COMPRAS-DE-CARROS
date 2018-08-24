@@ -51,7 +51,7 @@
                     <th class="Complemento"></th>
                 </tr>
                 <?php
-                    include('Conexão1.php');
+                    include('Conexao1.php');
                     $sql = "SELECT * FROM senhas";
                     $stmtListagem = $con->prepare($sql);
                     $stmtListagem->execute();
@@ -65,7 +65,7 @@
                     echo '<td class="ColumSistema">'. $usuario['sistema']. '</td>';
                     echo '<td class="ColumUsuario">'. $usuario['usuario']. '</td>';
                     echo '<td class="ColumSenha">'. $usuario['senha']. '</td>';
-                    echo '<td class="Complemento"</td>';
+                    echo '<td class="Complemento"><a href="aqui_vai_link_para_atualiza_com_id_do_registro"><button class="btn btn-primary">Update</button></a><a href="aqui_vai_link_para_excluir_com_id_do_registro"><button class="btn btn-danger">Delete</button></td>';
                     echo '<tr>';
                     
                 }
