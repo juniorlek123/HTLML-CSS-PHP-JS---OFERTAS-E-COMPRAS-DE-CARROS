@@ -41,14 +41,16 @@
             </div>
         </div>
         <hr>
+        <div class="limite">
         <ol>
+            
             <table class="table">
                 <tr>
-                    <th class="ColumCodigo">Codigo</th>
-                    <th class="ColumSistema" >Sistema/Site</th>
-                    <th class="ColumUsuario">Usuário</th>
-                    <th class="ColumSenha">Senha</th>
-                    <th class="Complemento"></th>
+                    <th class="ColumCodigoH">Codigo</th>
+                    <th class="ColumSistemaH" >Marca/Modelo</th>
+                    <th class="ColumUsuarioH">Ano</th>
+                    <th class="ColumSenhaH">Valor</th>
+                    <th class="ComplementoH"></th>
                 </tr>
                 <?php
                     include('Conexao1.php');
@@ -61,11 +63,11 @@
                 {
                     
                     echo '<tr>';
-                    echo '<td class="ColumCodigo">'. $usuario['codigo']. '</td>';
+                    echo '<td class="ColumCodigo">'. $usuario['id']. '</td>';
                     echo '<td class="ColumSistema">'. $usuario['sistema']. '</td>';
                     echo '<td class="ColumUsuario">'. $usuario['usuario']. '</td>';
                     echo '<td class="ColumSenha">'. $usuario['senha']. '</td>';
-                    echo '<td class="Complemento"><a href="aqui_vai_link_para_atualiza_com_id_do_registro"><button class="btn btn-primary">Update</button></a><a href="aqui_vai_link_para_excluir_com_id_do_registro"><button class="btn btn-danger">Delete</button></td>';
+                    echo '<td class="Complemento"><form class="CadAn" name="singnup" method="post" action="cadCli.php"><a href="anunciante.php?id=' .$usuario['id'].'"><button class="btnEditar">Editar</button></a><a href="anunciante.php?id=' .$usuario['id'].'"><button class="btnExcluir">Delete</button></form></td>';
                     echo '<tr>';
                     
                 }
@@ -74,6 +76,7 @@
                 
             </table>
         </ol>
+        </div>
         <footer class="rodape">
             <center><h5>© 2018 - Desenvolvido por José Paulo de Oliveira Junior</h5></center>
         </footer>
