@@ -25,6 +25,6 @@
     $stmtCad->execute();
 
     echo 'Cadastro efetuado com sucesso';
-    header("location: index.html");
+    header("location: index.php");
     
 ?>

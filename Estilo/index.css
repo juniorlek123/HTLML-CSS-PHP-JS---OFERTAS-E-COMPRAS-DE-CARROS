@@ -533,6 +533,15 @@ h5{
 }
 
 
+.idEdit {
+    
+    width: 0px;
+    height: 0px;
+    padding: 0 0 0 0;
+    border: none;
+    **background-color: dodgerblue;   
+}
+
 
 /*CÓDIGOS TRAZIDOS DO BOOTSTRAP*/
 

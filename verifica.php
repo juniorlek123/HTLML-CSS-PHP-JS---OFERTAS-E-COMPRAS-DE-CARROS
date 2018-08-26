@@ -40,6 +40,10 @@
         $_SESSION['cadcliente']= $usuario;
         $_SESSION['tipo']= $tipo;
         $_SESSION['id']= ($anunciante['id']);
+        $_SESSION['nome']= ($anunciante['nome']);
+        $_SESSION['cpf']= ($anunciante['cpf']);
+        $_SESSION['tel']= ($anunciante['tel']);
+        $_SESSION['email']= ($anunciante['email']);
         header("location: anunciante.php");
             
         }
@@ -51,6 +55,10 @@
         $_SESSION['cadcliente']= $usuario;
         $_SESSION['tipo']= $tipo;
         $_SESSION['id']= ($anunciante['id']);
+        $_SESSION['nome']= ($anunciante['nome']);
+        $_SESSION['cpf']= ($anunciante['cpf']);
+        $_SESSION['tel']= ($anunciante['tel']);
+        $_SESSION['email']= ($anunciante['email']);
         header("location: anunciante.php");
         
     }
