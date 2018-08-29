@@ -35,9 +35,8 @@
         <br>
         <div class="mnuAnun">
             <div class="row">
-                <button class="btnSubMenu" data-toggle="modal" data-target="#cadVei">Cadastrar Veículo</button>
-                <button class="btnSubMenu">Ver Ofertas</button>
-                <button class="btnSubMenu"data-toggle="modal" data-target="#editDados" data-iddados="<?php echo $_SESSION['id'];?>" data-nome="<?php echo $_SESSION['nome'];?>" data-cpf="<?php echo $_SESSION['cpf'];?>" data-tel="<?php echo $_SESSION['tel'];?>" data-email="<?php echo $_SESSION['email'];?>" data-usuario="<?php echo $_SESSION['cadcliente']; ?>" >Ver meus dados</button> 
+                <button class="btnSubMenu">Meus Lances</button>
+                <button class="btnSubMenu"data-toggle="modal" data-target="#editDados" data-iddados="<?php echo $_SESSION['id'];?>" data-nome="<?php echo $_SESSION['nome'];?>" data-cnpj="<?php echo $_SESSION['cnpj'];?>" data-tel="<?php echo $_SESSION['tel'];?>" data-email="<?php echo $_SESSION['email'];?>" data-usuario="<?php echo $_SESSION['cadcliente']; ?>" >Ver meus dados</button> 
             </div>
         </div>
         <hr>
@@ -53,7 +52,7 @@
                 </tr>
                 <?php
                     include('conexao.php');
-                     $sql = "SELECT * FROM veiculos WHERE idcliente = ?";
+                     $sql = "SELECT * FROM veiculos";
                     $stmtListagem = $con->prepare($sql);
                     $stmtListagem->bindParam(1, $_SESSION['id']);
                     $stmtListagem->execute();
@@ -67,8 +66,9 @@
                     echo '<td class="ColumSistema">'. $usuario['marca']. '</td>';
                     echo '<td class="ColumUsuario">'. $usuario['ano']. '</td>';
                     echo '<td class="ColumSenha">'. $usuario['valor']. '</td>';
-                    echo '<td class="Complemento"><a><button class="btnEditar" href="" data-toggle="modal" data-target="#EditVei" data-whatever="'.$usuario['id'].'" data-whatevermarca="'.$usuario['marca'].'" data-whateverano="'.$usuario['ano'].'" data-whatevervalor="'.$usuario['valor'].'">Editar</button></a><a href="deleteVeiculo.php?id=' .$usuario['id'].'"><button class="btnExcluir">Delete</button></td>';
+                    echo '<td class="Complemento"><a><button class="btnEditar" href="" data-toggle="modal" data-target="#EditVei" data-whatever="'.$usuario['id'].'" data-whatevermarca="'.$usuario['marca'].'" data-whateverano="'.$usuario['ano'].'" data-whatevervalor="'.$usuario['valor'].'">Lance</button></a><a href="deleteVeiculo.php?id=' .$usuario['id'].'"></td>';
                     echo '<tr>';
+                    
                     
                 }
                 
@@ -168,46 +168,12 @@
                 </div>                  
             </div>                
         </div>
-        <div class="modal fade" id="cadVei" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">                
-                <div class="modal-content">                       
-                    <div class="modal-header"> 
-                    <div class="modal-body">
-                        <form class="CadAn" name="singnup" method="post" action="cadVei.php">
-                            <h3 class="fontCadA">Cadastrar Veículo</h3>
-                            <hr>
-                            <div class="cadANome">
-                                <label class="fontCadA">Marca/Modelo</label>
-                                <input class="CadAnun" type="text" name="marca" placeholder="Digite aqui sua Razão Social" required="">
-                            </div>
-                            <br>
-                            <div class="cadANome">
-                                <label class="fontCadA">Ano</label>
-                                <input class="CadAnun" type="text" name="ano" placeholder="Digite aqui seu CNPJ" required="">
-                            </div>
-                            <br>
-                            <div class="cadANome">
-                                <label class="fontCadA">Valor</label>
-                                <input class="CadAnun" type="text" name="valor" placeholder="Digite aqui seu Telefone" required="">
-                            </div>
-                            <br>
-                            <hr>
-                            <div class="cadAButton">
-                                <input class="btnCadA" type="submit" name="" value="Cadastrar">
-                                <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button>
-                            </div>
-                        </form>
-                    </div>
-                    </div>             
-                </div>                  
-            </div>               
-        </div>
         <div class="modal fade" id="EditVei" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">                
                 <div class="modal-content">                       
                     <div class="modal-header"> 
                     <div class="modal-body">
-                        <form class="CadAn" name="singnup" method="post" action="editVeiculo.php">
+                        <form class="CadAn" name="singnup" method="post" action="cadLance.php">
                             <h3 class="fontCadA">Cadastrar Veículo</h3>
                             <hr>
                             <div class="cadANome">
@@ -225,10 +191,16 @@
                                 <label class="fontCadA">Valor</label>
                                 <input class="CadAnun" id="recpient-valor" type="text" name="evalor" placeholder="Digite aqui seu Telefone" required="">
                             </div>
+                            <hr>
+                            <h3 class="fontCadA">Lance no Veículo</h3>
+                            <div class="cadANome">
+                                <label class="fontCadA">Valor do Lance</label>
+                                <input class="CadAnun" id="recpient-valor" type="text" name="lvalor" placeholder="Digite aqui seu Telefone" required="">
+                            </div>
                             <br>
                             <hr>
                             <div class="cadAButton">
-                                <input class="btnCadA" type="submit" name="" value="Editar">
+                                <input class="btnCadA" type="submit" name="" value="Lance">
                                 <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button>
                             </div>
                         </form>
@@ -315,7 +287,7 @@
           var button = $(event.relatedTarget) // Button that triggered the modal
           var idmeudados = button.data('iddados') // Extract info from data-* attributes
           var editnome = button.data('nome') // Extract info from data-* attributes
-          var editcpf = button.data('cpf') // Extract info from data-* attributes
+          var editcpf = button.data('cnpj') // Extract info from data-* attributes
           var edittel = button.data('tel') // Extract info from data-* attributes
           var editemail = button.data('email') // Extract info from data-* attributes
           var editusuario = button.data('usuario') // Extract info from data-* attributes

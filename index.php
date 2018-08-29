@@ -181,19 +181,21 @@
                 <div class="modal-content">                       
                     <div class="modal-header"> 
                     <div class="modal-body">
-                        <form name="esquecis">
-                            <h3>Esqueci Minha Senha</h3>
+                        <form class="CadAn" name="singnup" method="post" action="email.php">
+                            <h3 class="fontCadA">Esqueci Minha Senha</h3>
                             <div class="cadANome">
-                                <label>CPF/CNPJ</label>
-                                <input class="CadAnun" type="text" placeholder="Digite aqui seu CPF/CNPJ" required="">
+                                <label class="fontCadA">CPF/CNPJ</label>
+                                <input class="CadAnun" name="cpf" type="text" placeholder="Digite aqui seu CPF/CNPJ" required="">
                             </div>
                             <div class="cadANome">
-                                <label>Email</label>
-                                <input class="CadAnun" type="text" placeholder="Digite aqui seu Email" required="">
+                                <label class="fontCadA">Email</label>
+                                <input class="CadAnun" name="email" type="text" placeholder="Digite aqui seu Email" required="">
                             </div>
                             <hr>
-                            <input class="btnCadastrar" type="submit" name="" value="Enviar">
-                            <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button>
+                            <div class="cadAButton">
+                                <input class="btnCadA" type="submit" name="" value="Cadastrar">
+                                <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button>
+                            </div>
                         </form>
                     </div>
                     </div>             
@@ -205,18 +207,19 @@
                 <div class="modal-content">                       
                     <div class="modal-header"> 
                     <div class="modal-body">
-                        <h1>Um Pouco Sobre Nossa História</h1>
-                        <p>
+                        <h1 class="fontCadA">Um Pouco Sobre Nossa História</h1>
+                        <hr>
+                        <p class="fontCadA">
                         O projeto do Vapor Cugnot Trolley (Jonathan Holguinisburg) (1769)
                         A história do automóvel tem início por volta de 1769, com a criação do motor a vapor de automóveis capazes de transportar humanos.[1]:14 Em 1807, os primeiros carros movidos por um motor de combustão interna a gás combustível apareceram, o que levou à introdução em 1885 do moderno motor a gasolina ou com combustão a gasolina onipresente interno.[2] 
                         O ano de 1886 é considerado o ano de nascimento do automóvel moderno - com o Benz Patent-Motorwagen, pelo inventor alemão Karl Benz.[3] 
                         Carros movidos a energia elétrica apareceram no século XX, mas praticamente desapareceram de uso até o século XXI. O início da história do automóvel pode ser dividido em um certo número de eras, com base nos meios comuns de propulsão. Períodos posteriores foram definidos por tendências de estilo exterior, tamanho e preferências de serviços públicos. 
 
                         Índice</p>
-                                                <hr>
-                        <button type="button" class="btCadAnun" data-dismiss="modal">Fechar</button>
-                    </div>
-                    <div class="modal-footer">
+                       <hr>
+                        <div class="cadAButton">
+                            <button type="button" class="btCadAnun" data-dismiss="modal">Sair</button>
+                        </div>
                     </div>
                     </div>             
                 </div>                  
@@ -227,17 +230,36 @@
                 <div class="modal-content">                       
                     <div class="modal-header"> 
                     <div class="modal-body">
-                        <h3>Entre em Contato</h3>
-                        <form name="formulario">
-                            <p><b>Nome:</b><br>
-                            <input type=text name="nome" size="45" required="" placeholder="Digite seu nome completo"></p><br>
-                            <p><b>Email:</b><br>
-                            <input type=text name="email" size="45" required="" placeholder="Digite seu Email"></p><br>
-                            <p><b>Assunto:</b><br>
-                            <input type=text name="assunto" size="45" required="" placeholder="Digite o assunto"></p><br>
-                            <p><b>Mensagem:</b><br>
-                            <textarea name="Mensagem" rows="10" cols="60" wrap="virtual" placeholder="Digite sua mensagem"></textarea></p><br>
-                            <p><input type="submit" value="Enviar Email"> <input type="reset" value="Limpar Formulário"> <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button></p>
+                        <h3 class="fontCadA">Entre em Contato</h3>
+                        <hr>
+                        <form class="CadAn" name="singnup" method="post" action="contato.php">
+                            <div class="cademail">  
+                                <label class="fontCadA">Nome</label>
+                                <input type=text class="cemail" name="nome" size="45" required="" placeholder="Digite seu nome completo">
+                            </div>
+                            <br>
+                            <div class="cademail">  
+                                <label class="fontCadA">Telefone/Celular</label>
+                                <input type=text class="cemail" name="tel" size="45" required="" placeholder="Digite seu nome completo">
+                            </div>
+                            <br>
+                            <div class="cademail">  
+                                <label class="fontCadA">Email</label>
+                                <input type=text class="cemail" name="email" size="45" required="" placeholder="Digite seu nome completo">
+                            </div>
+                            <br>
+                            <div class="cademail">  
+                                <label class="fontCadA">Assunto</label>
+                                <input type=text class="cemail" name="Assunto" size="45" required="" placeholder="Digite seu nome completo">
+                            </div>
+                            <br>
+                            <label class="fontCadA">Mensagem</label>
+                            <textarea class="cemailmsg" name="Mensagem" rows="10" cols="60" wrap="virtual" placeholder="Digite sua mensagem"></textarea><br>
+                            <hr>
+                            <div class="cadAButton">
+                                <input class="btnCadA" type="submit" name="" value="Enviar">
+                                <button type="button" class="btCadAnun" data-dismiss="modal">Cancelar</button>
+                            </div>
                         </form>
                     </div>
                     </div>             
