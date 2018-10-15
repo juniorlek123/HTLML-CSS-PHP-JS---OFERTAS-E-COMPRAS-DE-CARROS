@@ -67,7 +67,7 @@
                     echo '<td class="ColumSistema">'. $usuario['marca']. '</td>';
                     echo '<td class="ColumUsuario">'. $usuario['ano']. '</td>';
                     echo '<td class="ColumSenha">'. $usuario['valor']. '</td>';
-                    echo '<td class="Complemento"><a><button class="btnEditar" href="" data-toggle="modal" data-target="#EditVei" data-whatever="'.$usuario['id'].'" data-whatevermarca="'.$usuario['marca'].'" data-whateverano="'.$usuario['ano'].'" data-whatevervalor="'.$usuario['valor'].'">Editar</button></a><a href="deleteVeiculo.php?id=' .$usuario['id'].'"><button class="btnExcluir">Delete</button></td>';
+                    echo '<td class="Complemento"><a><button class="btnEditar" href="" data-toggle="modal" data-target="#EditVei" data-whatever="'.$usuario['id'].'" data-whatevermarca="'.$usuario['marca'].'" data-whateverano="'.$usuario['ano'].'" data-whatevervalor="'.$usuario['valor'].'">Editar</button></a><a href="tarefas.php?id=' .$usuario['id'].'"><button     class="btnExcluir">Delete</button></td>';
                     echo '<tr>';
                     
                 }
